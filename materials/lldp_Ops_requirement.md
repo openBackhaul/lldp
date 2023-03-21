@@ -1,4 +1,4 @@
-**LLDP Operational Requirements for Microwave Network Elements**
+## LLDP Operational Requirements for Microwave Network Elements
 
 LLDP (Link Layer Discovery Protocol) is a protocol used to discover and
 manage network devices and their connections in a Layer 2 network. When
