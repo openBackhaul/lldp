@@ -5,16 +5,16 @@ Technology specific amendment to the ControlConstruct class for LLDP according t
 - 1.0.0-tsp.d.t : Model for the Transport SDN Introduction at Telefonica
 
 ### UML
-- to be provided
+- [LLDP_1.0.0-tsi.230510.1745](LLDP_1.0.0-tsi.230510.1745.zip)
 
 ### Overview 
-- to be provided
+- [LLDP_1.0.0-tsi.230510.1745+overview.1](./LLDP_1.0.0-tsi.230510.1745+overview.1.png)
 
 ### GenDoc Export
-- to be provided
+- [LLDP_1.0.0-tsi.230510.1745+gendoc.1](./LLDP_1.0.0-tsi.230510.1745+gendoc.1.docx)
 
 ### Augmentation Condition
-- to be provided
+- not required
 
 ### YANG File
 - to be provided
