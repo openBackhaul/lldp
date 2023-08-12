@@ -6,6 +6,7 @@ Technology specific amendment to the ControlConstruct class for LLDP according t
 
 ### UML
 - [LLDP_1.0.0-tsi.230524.1420](LLDP_1.0.0-tsi.230524.1420.zip)
+- [LLDP_1.0.0-tsi.230524.1420a](LLDP_1.0.0-tsi.230524.1420a.zip) ([issue#4](https://github.com/openBackhaul/lldp/issues/4) fixed)
 
 ### Overview 
 - [LLDP_1.0.0-tsi.230524.1420+overview.1](./LLDP_1.0.0-tsi.230524.1420+overview.1.png)
