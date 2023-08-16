@@ -19,6 +19,7 @@ Technology specific amendment to the ControlConstruct class for LLDP according t
 
 ### YANG File
 - [LLDP_1.0.0-tsi.230524.1420+yang.1](LLDP_1.0.0-tsi.230524.1420+yang.1.zip)
+- [LLDP_1.0.0-tsi.230524.1420a+yang.1](LLDP_1.0.0-tsi.230524.1420a+yang.1.zip) ([issue#4](https://github.com/openBackhaul/lldp/issues/4) fixed)
 
 ### Interface Simulator
 - to be provided
