@@ -2,24 +2,22 @@
 Technology specific amendment to the ControlConstruct class for LLDP according to IEEE 802.1AB
 
 ### Branch
-- 1.0.0-tsp.d.t : Model for the Transport SDN Introduction at Telefonica
+- 1.0.0-tsi.d.t : Model for the Transport SDN Introduction at Telefonica
 
 ### UML
-- [LLDP_1.0.0-tsi.230524.1420](LLDP_1.0.0-tsi.230524.1420.zip)
-- [LLDP_1.0.0-tsi.230524.1420a](LLDP_1.0.0-tsi.230524.1420a.zip) ([issue#4](https://github.com/openBackhaul/lldp/issues/4) fixed)
+- [LLDP_1.0.0-tsi.240103.1220](LLDP_1.0.0-tsi.240103.1220.zip)
 
 ### Overview 
-- [LLDP_1.0.0-tsi.230524.1420+overview.1](./LLDP_1.0.0-tsi.230524.1420+overview.1.png)
+- [LLDP_1.0.0-tsi.240103.1220+overview.1](./LLDP_1.0.0-tsi.240103.1220+overview.1.png)
 
 ### GenDoc Export
-- [LLDP_1.0.0-tsi.230524.1420+gendoc.1](./LLDP_1.0.0-tsi.230524.1420+gendoc.1.docx)
+- [LLDP_1.0.0-tsi.240103.1220+gendoc.1](./LLDP_1.0.0-tsi.240103.1220+gendoc.1.docx)
 
 ### Augmentation Condition
 - not required
 
 ### YANG File
-- [LLDP_1.0.0-tsi.230524.1420+yang.1](LLDP_1.0.0-tsi.230524.1420+yang.1.zip)
-- [LLDP_1.0.0-tsi.230524.1420a+yang.1](LLDP_1.0.0-tsi.230524.1420a+yang.1.zip) ([issue#4](https://github.com/openBackhaul/lldp/issues/4) fixed)
+- [LLDP_1.0.0-tsi.240103.1220+yang.1](LLDP_1.0.0-tsi.240103.1220+yang.1.zip)
 
 ### Interface Simulator
 - to be provided
