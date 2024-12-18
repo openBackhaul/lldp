@@ -21,7 +21,10 @@ Technology specific amendment to the ControlConstruct class for LLDP according t
 
 ### YANG File  
 - [LLDP_1.0.0-tsi.240103.1220+yang.1](LLDP_1.0.0-tsi.240103.1220+yang.1.zip) (obsolete)  
-- [LLDP_1.1.0-ts.241213.1800+yang.1](LLDP_1.1.0-ts.241213.1800+yang.1.zip)  
+- [LLDP_1.1.0-ts.241213.1800+yang](./LLDP_1.1.0-ts.241213.1800+yang/lldp-1-0.yang)  
+
+### Schema
+- to be provided  
 
 ### Interface Simulator  
 - to be provided  
@@ -30,10 +33,10 @@ Technology specific amendment to the ControlConstruct class for LLDP according t
 - to be provided  
 
 ### Publication  
-- Candidate for ONF TR-532 v2.0  
+- Backward compatible extention of release published as a part of ONF TR-532 v2.0  
 
-### Aspired Model Classification  
-- Live Network  
+### Model Classification  
+- Ready for Live Network  
 
 ### Open Issue List  
 - [lldp/issues](../../issues)  
