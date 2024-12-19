@@ -526,7 +526,7 @@ module lldp-1-0 {
       description
         "List of versions of LLDP that are supported by the device.";
     }
-    leaf supported-kinds-of-lldp-agent-list {
+    leaf-list supported-kinds-of-lldp-agent-list {
       type string;
       default "00:00:00:00:00:00";
       config false;
