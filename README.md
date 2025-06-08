@@ -33,7 +33,7 @@ Technology specific amendment to the ControlConstruct class for LLDP according t
 - to be provided  
 
 ### Publication  
-- Backward compatible extention of release published as a part of ONF TR-532 v2.0  
+- Published as a part of ONF TR-532 v2.0  
 
 ### Model Classification  
 - Ready for Live Network  
