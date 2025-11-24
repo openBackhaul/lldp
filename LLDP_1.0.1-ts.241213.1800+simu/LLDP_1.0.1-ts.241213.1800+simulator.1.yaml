@@ -1,0 +1,1297 @@
+openapi: 3.0.1
+info:
+  title: LLDP_1.0.1-ts.241213.1800+simulator.1
+  version: 1.0.1
+
+paths:
+
+########################################################################################################################
+#   Generic Paths
+########################################################################################################################
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/equipment-augment-1-0:protocol-collection/protocol={uuid}/lldp-1-0:lldp-pac:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedLldpPac
+      summary: 'Provides LldpPac from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'lldpPac provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - lldp-1-0:lldp-pac
+                properties:
+                  lldp-1-0:lldp-pac:
+                    $ref: '#/components/schemas/lldp-pac'
+                example:            
+                  lldp-1-0:lldp-pac:
+                    local-system-data:
+                      system-description: 'System description not yet defined.'
+                      switching-protocol-on-off-is-avail: false
+                      system-capabilities-supported:
+                        router: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        other: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        station-only: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        two-port-mac-relay: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        svlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        wlan-access-point: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        telephone: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        bridge: 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                        docsis-cable-device: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        cvlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        repeater: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                      system-name: 'System name not yet defined.'
+                      supported-versions-of-lldp-list:
+                        - 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
+                      system-capabilities-enabled:
+                        router: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        other: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        station-only: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        two-port-mac-relay: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        svlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        wlan-access-point: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        telephone: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        bridge: 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                        docsis-cable-device: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        cvlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        repeater: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                      supported-kinds-of-lldp-agent-list:
+                        - '00:00:00:00:00:00'
+                      chassis-id-subtype: 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_MAC_ADDRESS'
+                      chassis-id: '8c:fd:18:a2:1c:18'
+                    port-list:
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-6-4
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-6-3
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-4-4
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-6-2
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-5-2
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-4-3
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-6-1
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-5-1
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-4-2
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                      - management-address-tx-port-list:
+                          - tx-enable: false
+                            man-address: 172.29.147.230
+                            address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                            addr-len: -1
+                            if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                            if-id: -1
+                        rx-statistics:
+                          error-frames: -1
+                          total-frames: -1
+                          total-unrecognized-tlvs: -1
+                          total-ageouts: -1
+                          total-discarded-tlvs: -1
+                          total-discarded-frames: -1
+                        tx-fast-init: -1
+                        message-fast-tx: -1
+                        port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                        message-tx-interval: -1
+                        port-desc: Port description not yet defined.
+                        message-tx-hold-multiplier: -1
+                        admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                        dest-mac-address: '00:00:00:00:00:00'
+                        notification-interval: -1
+                        name: LTP-ETHERNETCONTAINER-TTP-4-1
+                        port-id: Port ID not yet defined.
+                        tx-statistics:
+                          total-length-errors: -1
+                          total-frames: -1
+                        tx-credit-max: -1
+                        notification-enable: false
+                        tlvs-tx-enable:
+                          sys-cap: false
+                          port-desc: false
+                          sys-desc: false
+                          sys-name: false
+                        reinit-delay: -1
+                    tx-fast-init: -1
+                    message-fast-tx: 4
+                    remote-statistics:
+                      remote-inserts: -1
+                      remote-drops: -1
+                      remote-deletes: -1
+                      last-change-time: '2010-11-20T14:00:00+01:00'
+                      remote-ageouts: -1
+                    message-tx-interval: 30
+                    notification-interval: -1
+                    tx-credit-max: -1
+                    lldp-configuration:
+                      activated-version-of-lldp: 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
+                      protocol-is-on: true
+                    message-tx-hold-multiplier: 4
+                    lldp-status:
+                      protocol-is-up: true
+                      operational-version-of-lldp: 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
+                    reinit-delay: 2
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/equipment-augment-1-0:protocol-collection/protocol={uuid}/lldp-1-0:lldp-pac/local-system-data:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedLldpLocalSystemData
+      summary: 'Provides Lldp Local System Data from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'LldpLocalSystemData provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - lldp-1-0:local-system-data
+                properties:
+                  lldp-1-0:local-system-data:
+                    $ref: '#/components/schemas/local-system-data'
+                example:            
+                 lldp-1-0:local-system-data:
+                  system-description: 'System description not yet defined.'
+                  switching-protocol-on-off-is-avail: false
+                  system-capabilities-supported:
+                    router: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    other: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    station-only: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    two-port-mac-relay: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    svlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    wlan-access-point: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    telephone: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    bridge: 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                    docsis-cable-device: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    cvlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    repeater: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                  system-name: 'System name not yet defined.'
+                  supported-versions-of-lldp-list:
+                    - 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
+                  system-capabilities-enabled:
+                    router: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    other: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    station-only: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    two-port-mac-relay: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    svlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    wlan-access-point: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    telephone: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    bridge: 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                    docsis-cable-device: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    cvlan-component: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    repeater: 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                  supported-kinds-of-lldp-agent-list:
+                    - '00:00:00:00:00:00'
+                  chassis-id-subtype: 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_MAC_ADDRESS'
+                  chassis-id: '8c:fd:18:a2:1c:18'
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+ 
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/equipment-augment-1-0:protocol-collection/protocol={uuid}/lldp-1-0:lldp-pac/remote-statistics:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedRemoteStatistics
+      summary: 'Provides Lldp Remote Statistics from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'LlpdRemoteStatistics provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - lldp-1-0:remote-statistics
+                properties:
+                  lldp-1-0:remote-statistics:
+                    $ref: '#/components/schemas/remote-statistics'
+                example:
+                  lldp-1-0:remote-statistics:
+                    remote-inserts: -1
+                    remote-drops: -1
+                    remote-deletes: -1
+                    last-change-time: '2010-11-20T14:00:00+01:00'
+                    remote-ageouts: -1
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/equipment-augment-1-0:protocol-collection/protocol={uuid}/lldp-1-0:lldp-pac/lldp-configuration:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedLldpConfiguration
+      summary: 'Provides Lldp configuration from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'Lldp configuration provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - lldp-1-0:lldp-configuration
+                properties:
+                  lldp-1-0:lldp-configuration:
+                    $ref: '#/components/schemas/lldp-configuration'
+                example:
+                  lldp-1-0:lldp-configuration:
+                    activated-version-of-lldp: 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
+                    protocol-is-on: true
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/equipment-augment-1-0:protocol-collection/protocol={uuid}/lldp-1-0:lldp-pac/lldp-status:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedLltpStatus
+      summary: 'Provides LltpStatus from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'LltpStatus provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - lldp-1-0:lldp-status
+                properties:
+                  lldp-1-0:lldp-status:
+                    $ref: '#/components/schemas/lldp-status'
+                example:
+                  lldp-1-0:lldp-status:
+                    protocol-is-up: true
+                    operational-version-of-lldp: 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/equipment-augment-1-0:protocol-collection/protocol={uuid}/lldp-1-0:lldp-pac/port-list={name_dest_mac_address}:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/name_dest_mac_address'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedLldpPortList
+      summary: 'Provides LldpPortList from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'LldpPortList provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - lldp-1-0:port-list
+                properties:
+                  lldp-1-0:port-list:
+                    $ref: '#/components/schemas/port-list'
+                example:
+                  lldp-1-0:port-list:
+                    - management-address-tx-port-list:
+                        - tx-enable: false
+                          man-address: '172.29.147.230'
+                          address-subtype: 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                          addr-len: -1
+                          if-subtype: 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                          if-id: -1
+                      rx-statistics:
+                        error-frames: -1
+                        total-frames: -1
+                        total-unrecognized-tlvs: -1
+                        total-ageouts: -1
+                        total-discarded-tlvs: -1
+                        total-discarded-frames: -1
+                      tx-fast-init: -1
+                      message-fast-tx: -1
+                      port-id-subtype: 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                      message-tx-interval: -1
+                      port-desc: 'Port description not yet defined.'
+                      message-tx-hold-multiplier: -1
+                      admin-status: 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                      dest-mac-address: '00:00:00:00:00:00'
+                      notification-interval: -1
+                      name: 'LTP-ETHERNETCONTAINER-TTP-6-4'
+                      port-id: 'Port ID not yet defined.'
+                      tx-statistics:
+                        total-length-errors: -1
+                        total-frames: -1
+                      tx-credit-max: -1
+                      notification-enable: false
+                      tlvs-tx-enable:
+                        sys-cap: false
+                        port-desc: false
+                        sys-desc: false
+                        sys-name: false
+                      reinit-delay: -1
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+
+
+
+########################################################################################################################
+#   Common Components
+########################################################################################################################
+components:
+  parameters:
+    user:
+      name: user
+      in: header
+      required: true
+      schema:
+        type: string
+        example: 'User Name'
+      description: 'User identifier from the system starting the service call'
+    originator:
+      name: originator
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 3
+        example: 'Resolver'
+      description: >
+        'Identification for the system consuming the API, as defined in
+         [/core-model-1-4:control-construct/equipment-augment-1-0:protocol-collection/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'
+    x-correlator:
+      name: x-correlator
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: '^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$'
+        description: 'Empty string accepted from external applications.'
+        example: '550e8400-e29b-11d4-a716-446655440000'
+      description: 'UUID for the service execution flow that allows to correlate requests and responses'
+    trace-indicator:
+      name: trace-indicator
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: '^([0-9]+)(\.([0-9]+))*$'
+        description: 'Empty string accepted from external applications.'
+        example: '1.3.1'
+      description: 'Sequence of request numbers along the flow'
+    customer-journey:
+      name: customer-journey
+      in: header
+      required: true
+      schema:
+        type: string
+        example: 'Unknown value'
+      description: 'Holds information supporting customer’s journey to which the execution applies'
+    mountName:
+      name: mountName
+      in: path
+      required: true
+      schema:
+        type: string
+        example: '222250001'
+      description: 'The mountName of the device that is addressed by the request'
+    uuid:
+      name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LTP-MWPS-TTP-1-1'
+      description: 'Instance identifier that is unique within the device'
+    uuid1:
+      name: uuid1
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LTP-MWPS-TTP-1-1'
+      description: 'Another instance identifier that is unique within the device'
+    name_dest_mac_address:
+      name: name_dest_mac_address
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LP-MWPS-TTP-1-1LTP-ETHERNETCONTAINER-TTP-6-4'
+      description: 'Instance identifier that is unique within its list'
+    fields:
+      name: fields
+      in: query
+      required: false
+      schema:
+        type: string
+        example: 'node(node-id;netconf-node-topology:connection-status)'
+      description: 'Query parameter to filter ressources according to RFC8040 fields filter spec'
+  responses:
+    responseForErroredServiceRequests:
+      description: 'Response in case of errored service requests'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorDescription'
+      headers:
+        x-correlator:
+          schema:
+            type: string
+            pattern: '^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$'
+            example: '550e8400-e29b-11d4-a716-446655440000'
+          description: 'UUID for the service execution flow that allows to correlate requests and responses. Its value must be identical at the response compared with its corresponding request'
+        exec-time:
+          schema:
+            type: integer
+            example: 1100
+          description: 'Value written by the service provider, reporting the total elapsed time for the execution, including all the additional processing needed to retrieve the data from the backend service. Expressed in milliseconds'
+        backend-time:
+          schema:
+            type: integer
+            example: 850
+          description: 'Value written by the service provider, reporting the elapsed time for data retrieval from the backend (service invocation, database access…). Expressed in milliseconds'
+    responseForErroredOamRequests:
+      description: 'Response in case of errored OaM requests'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorDescription'
+  headers:
+    x-correlator:
+      schema:
+        type: string
+        example: '550e8400-e29b-11d4-a716-446655440000'
+      description: 'UUID for the service execution flow that allows to correlate requests and responses. Its value must be identical at the response compared with its corresponding request'
+    exec-time:
+      schema:
+        type: integer
+        example: 1100
+      description: 'Value written by the service provider, reporting the total elapsed time for the execution, including all the additional processing needed to retrieve the data from the backend service. Expressed in milliseconds'
+    backend-time:
+      schema:
+        type: integer
+        example: 850
+      description: 'Value written by the service provider, reporting the elapsed time for data retrieval from the backend (service invocation, database access…). Expressed in milliseconds'
+    life-cycle-state:
+      schema:
+        type: string
+        enum:
+          - 'EXPERIMENTAL'
+          - 'OPERATIONAL'
+          - 'DEPRECATED'
+          - 'OBSOLETE'
+          - 'UNKNOWN'
+          - 'NOT_YET_DEFINED'
+        example: 'EXPERIMENTAL'
+  schemas:
+    errorDescription:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    lldp-pac:
+      type: object
+      required:
+        - local-system-data
+        - lldp-configuration
+        - lldp-status
+        - remote-statistics
+        - message-fast-tx
+        - message-tx-hold-multiplier
+        - message-tx-interval
+        - reinit-delay
+        - tx-credit-max
+        - tx-fast-init
+        - notification-interval
+        - port-list
+      properties:
+        local-system-data:
+          $ref: '#/components/schemas/local-system-data'
+        lldp-configuration:
+          $ref: '#/components/schemas/lldp-configuration'
+        lldp-status:
+          $ref: '#/components/schemas/lldp-status'
+        remote-statistics:
+          $ref: '#/components/schemas/remote-statistics'
+        port-list:
+          $ref: '#/components/schemas/port-list'
+          x-key: name dest-mac-address
+        message-fast-tx:
+          type: integer
+          format: int16
+        message-tx-hold-multiplier:
+          type: integer
+          format: int8
+        message-tx-interval:
+          type: integer
+          format: int16
+        reinit-delay:
+          type: integer
+          format: int8
+        tx-credit-max:
+          type: integer
+          format: int8
+        tx-fast-init:
+          type: integer
+          format: int8
+        notification-interval:
+          type: integer
+          format: int16
+    local-system-data:
+      type: object
+      required:
+        - chassis-id-subtype
+        - chassis-id
+        - system-name
+        - system-description
+        - system-capabilities-supported
+        - system-capabilities-enabled
+        - switching-protocol-on-off-is-avail
+        - supported-versions-of-lldp-list
+        - supported-kinds-of-lldp-agent-list
+      properties:
+        chassis-id-subtype:
+          type: string
+        chassis-id:
+          type: string
+        system-name:
+          type: string
+        system-description:
+          type: string
+        system-capabilities-supported:
+          type: object
+          required:
+            - other
+            - repeater
+            - bridge
+            - wlan-access-point
+            - router
+            - telephone
+            - docsis-cable-device
+            - station-only
+            - cvlan-component
+            - svlan-component
+            - two-port-mac-relay
+          properties:
+            other:
+              type: string
+            repeater:
+              type: string
+            bridge:
+              type: string
+            wlan-access-point:
+              type: string
+            router:
+              type: string
+            telephone:
+              type: string
+            docsis-cable-device:
+              type: string
+            station-only:
+              type: string
+            cvlan-component:
+              type: string
+            svlan-component:
+              type: string
+            two-port-mac-relay:
+              type: string
+        system-capabilities-enabled:
+          type: object
+          required:
+            - other
+            - repeater
+            - bridge
+            - wlan-access-point
+            - router
+            - telephone
+            - docsis-cable-device
+            - station-only
+            - cvlan-component
+            - svlan-component
+            - two-port-mac-relay
+          properties:
+            other:
+              type: string
+            repeater:
+              type: string
+            bridge:
+              type: string
+            wlan-access-point:
+              type: string
+            router:
+              type: string
+            telephone:
+              type: string
+            docsis-cable-device:
+              type: string
+            station-only:
+              type: string
+            cvlan-component:
+              type: string
+            svlan-component:
+              type: string
+            two-port-mac-relay:
+              type: string
+        supported-versions-of-lldp-list:
+          type: array
+          minItems: 0
+          items:
+            type: string
+        supported-kinds-of-lldp-agent-list:
+          type: array
+          minItems: 0
+          items:
+            type: string
+        switching-protocol-on-off-is-avail:
+          type: boolean
+    remote-statistics:
+      type: object
+      required:
+        - last-change-time
+        - remote-inserts
+        - remote-deletes
+        - remote-drops
+        - remote-ageouts
+      properties:
+        last-change-time:
+          type: string
+        remote-inserts:
+          type: integer
+          format: int32
+        remote-deletes:
+          type: integer
+          format: int32
+        remote-drops:
+          type: integer
+          format: int32
+        remote-ageouts:
+          type: integer
+          format: int32
+    lldp-configuration:
+      type: object
+      required:
+        - protocol-is-on
+        - activated-version-of-lldp
+      properties:
+        protocol-is-on:
+          type: boolean
+        activated-version-of-lldp:
+          type: string
+    lldp-status:
+      type: object
+      required:
+        - protocol-is-up
+        - operational-version-of-lldp
+      properties:
+        protocol-is-up:
+          type: boolean
+        operational-version-of-lldp:
+          type: string
+    port-list:
+      type: array
+      minItems: 0
+      items:
+        type: object
+        required:
+          - name
+          - dest-mac-address
+          - admin-status
+          - notification-enable
+          - tlvs-tx-enable
+          - message-fast-tx
+          - message-tx-hold-multiplier
+          - message-tx-interval
+          - reinit-delay
+          - tx-credit-max
+          - tx-fast-init
+          - notification-interval
+          - management-address-tx-port-list
+          - port-id-subtype
+          - port-id
+          - port-desc
+          - tx-statistics
+          - rx-statistics
+        properties:
+          name:
+            type: string
+          dest-mac-address:
+            type: string
+          admin-status:
+            type: string
+          notification-enable:
+            type: boolean
+          tlvs-tx-enable:
+            type: object
+            required:
+              - port-desc
+              - sys-name
+              - sys-desc
+              - sys-cap
+            properties:
+              port-desc:
+                type: boolean
+              sys-name:
+                type: boolean
+              sys-desc:
+                type: boolean
+              sys-cap:
+                type: boolean
+          message-fast-tx:
+            type: integer
+            format: int16
+          message-tx-hold-multiplier:
+            type: integer
+            format: int8
+          message-tx-interval:
+            type: integer
+            format: int16
+          reinit-delay:
+            type: integer
+            format: int8
+          tx-credit-max:
+            type: integer
+            format: int8
+          tx-fast-init:
+            type: integer
+            format: int8
+          notification-interval:
+            type: integer
+            format: int16
+          management-address-tx-port-list:
+            type: array
+            items:
+              type: object
+              required:
+                - address-subtype
+                - man-address
+                - tx-enable
+                - addr-len
+                - if-subtype
+                - if-id
+              properties:
+                address-subtype:
+                  type: string
+                man-address:
+                  type: string
+                tx-enable:
+                  type: boolean
+                addr-len:
+                  type: integer
+                  format: int32
+                if-subtype:
+                  type: string
+                if-id:
+                  type: integer
+                  format: int32
+            x-key: address-subtype man-address
+          port-id-subtype:
+            type: string
+          port-id:
+            type: string
+          port-desc:
+            type: string
+          tx-statistics:
+            type: object
+            required:
+              - total-frames
+              - total-length-errors
+            properties:
+              total-frames:
+                type: integer
+                format: int32
+              total-length-errors:
+                type: integer
+                format: int32
+          rx-statistics:
+            type: object
+            required:
+              - total-ageouts
+              - total-discarded-frames
+              - error-frames
+              - total-frames
+              - total-discarded-tlvs
+              - total-unrecognized-tlvs
+            properties:
+              total-ageouts:
+                type: integer
+                format: int32
+              total-discarded-frames:
+                type: integer
+                format: int32
+              error-frames:
+                type: integer
+                format: int32
+              total-frames:
+                type: integer
+                format: int32
+              total-discarded-tlvs:
+                type: integer
+                format: int32
+              total-unrecognized-tlvs:
+                type: integer
+                format: int32
+    securitySchemes:
+      apiKeyAuth:
+        type: apiKey
+        in: header
+        name: operation-key
+      basicAuth:
+        type: http
+        scheme: basic

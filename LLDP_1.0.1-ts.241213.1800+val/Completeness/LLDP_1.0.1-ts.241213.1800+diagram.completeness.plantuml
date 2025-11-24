@@ -1,0 +1,93 @@
+@startuml LLDP_1.0.1-ts.241213.1800+diagram.completeness
+skinparam responseMessageBelowArrow true
+
+title
+LLDP_1.0.1-ts.241213.1800+testcase.completeness
+end title
+
+participant "Postman" as Postman
+participant "Data" as Data
+participant "Collection" as Collection
+
+participant "../protocol-collection" as ListofProtocolUuid
+
+participant "/lldp-pac" as lldpPac
+
+participant "/local-system-data" as LocalSystemData
+participant "/remote-statistics" as RemoteStatistics
+participant "/lldp-configuration" as Configuration
+participant "/lldp-status" as Status
+participant "/port-list" as PortList
+
+group Preparation
+  Data --\\o Postman : {servers,\n   mountName,\n   kindOfReference,\n   suffixUrlEncodingIsRequired}
+  activate Postman
+  Postman --\\o Collection : {servers,\n   mountName,\n   kindOfReference,\n   suffixUrlEncodingIsRequired}
+
+  Collection --\\o Postman : {servers, mountName}
+  Postman -> ListofProtocolUuid : {mountName}
+  Postman <-- ListofProtocolUuid : {(uuid,protocolName)}
+  note right Postman
+    filter for LldpProtocol
+  end note
+  Postman --\\o Collection : lldpProtocolUuid
+end
+
+group /lldp-pac
+  Collection --\\o Postman : {mountName, uuid}
+  Postman -> lldpPac : {mountName, uuid}
+  Postman <-- lldpPac : {LldpPacClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /local-system-data
+  Collection --\\o Postman : {mountName, uuid}
+  Postman -> LocalSystemData : {mountName, uuid}
+  Postman <-- LocalSystemData : {LocalSystemDataClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /remote-statistics
+  Collection --\\o Postman : {mountName, uuid}
+  Postman -> RemoteStatistics : {mountName, uuid}
+  Postman <-- RemoteStatistics : {RemoteStatisticsClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /lldp-configuration
+  Collection --\\o Postman : {mountName, uuid}
+  Postman -> Configuration : {mountName, uuid}
+  Postman <-- Configuration : {ConfigurationClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /lldp-status
+  Collection --\\o Postman : {mountName, uuid}
+  Postman -> Status : {mountName, uuid}
+  Postman <-- Status : {StatusClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+
+group /port-list
+  Collection --\\o Postman : {mountName, uuid}
+  Postman -> PortList : {mountName, uuid}
+  Postman <-- PortList : {PortListClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+deactivate Postman
+
+@enduml
