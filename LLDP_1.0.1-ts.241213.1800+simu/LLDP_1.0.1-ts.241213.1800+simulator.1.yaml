@@ -994,21 +994,437 @@ components:
         notification-interval:
           type: integer
           format: int16
+        port-list:
+          type: array
+          items:
+            type: object
+            required:
+              - name
+              - dest-mac-address
+              - admin-status
+              - notification-enable
+              - tlvs-tx-enable
+              - message-fast-tx
+              - message-tx-hold-multiplier
+              - message-tx-interval
+              - reinit-delay
+              - tx-credit-max
+              - tx-fast-init
+              - notification-interval
+              - port-id-subtype
+              - port-id
+              - port-desc
+              - tx-statistics
+              - rx-statistics
+            properties:
+              name:
+                type: string
+              dest-mac-address:
+                type: string
+                pattern: '^[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}$'
+              admin-status:
+                type: string
+                enum:
+                  - 'lldp-1-0:ADMIN_STATUS_TYPE_DISABLED'
+                  - 'lldp-1-0:ADMIN_STATUS_TYPE_TX_AND_RX'
+                  - 'lldp-1-0:ADMIN_STATUS_TYPE_RX_ONLY'
+                  - 'lldp-1-0:ADMIN_STATUS_TYPE_TX_ONLY'
+                  - 'lldp-1-0:ADMIN_STATUS_TYPE_NOT_YET_DEFINED'
+              notification-enable:
+                type: boolean
+              tlvs-tx-enable:
+                type: object
+                required:
+                  - port-desc
+                  - sys-name
+                  - sys-desc
+                  - sys-cap
+                properties:
+                  port-desc:
+                    type: boolean
+                  sys-name:
+                    type: boolean
+                  sys-desc:
+                    type: boolean
+                  sys-cap:
+                    type: boolean
+              message-fast-tx:
+                type: integer
+                format: int16
+              message-tx-hold-multiplier:
+                type: integer
+                format: int8
+              message-tx-interval:
+                type: integer
+                format: int16
+              reinit-delay:
+                type: integer
+                format: int8
+              tx-credit-max:
+                type: integer
+                format: int8
+              tx-fast-init:
+                type: integer
+                format: int8
+              notification-interval:
+                type: integer
+                format: int16
+              management-address-tx-port-list:
+                type: array
+                x-key: address-subtype man-address
+                items:
+                  type: object
+                  required:
+                    - address-subtype
+                    - man-address
+                    - tx-enable
+                    - addr-len
+                    - if-subtype
+                    - if-id
+                  properties:
+                    address-subtype:
+                      type: string
+                      enum:
+                        - 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                        - 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV6'
+                        - 'lldp-1-0:ADDRESS_FAMILY_TYPE_NOT_YET_DEFINED'                   
+                    man-address:
+                      type: string
+                      pattern: '^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
+                    tx-enable:
+                      type: boolean
+                    addr-len:
+                      type: integer
+                      format: int32
+                    if-subtype:
+                      type: string
+                      enum:
+                        - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_UNKNOWN'
+                        - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_PORT_REF'
+                        - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_SYSTEM_PORT_NUMBER'
+                        - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                    if-id:
+                      type: integer
+                      format: int32
+              port-id-subtype:
+                type: string
+                enum:
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_INTERFACE_ALIAS'
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_PORT_COMPONENT'
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_MAC_ADDRESS'
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NETWORK_ADDRESS'
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_INTERFACE_NAME'
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_AGENT_CIRCUIT_ID'
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_LOCAL'
+                  - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+              port-id:
+                type: string
+              port-desc:
+                type: string
+              tx-statistics:
+                type: object
+                required:
+                  - total-frames
+                  - total-length-errors
+                properties:
+                  total-frames:
+                    type: integer
+                    format: int32
+                  total-length-errors:
+                    type: integer
+                    format: int32
+              rx-statistics:
+                type: object
+                required:
+                  - total-ageouts
+                  - total-discarded-frames
+                  - error-frames
+                  - total-frames
+                  - total-discarded-tlvs
+                  - total-unrecognized-tlvs
+                properties:
+                  total-ageouts:
+                    type: integer
+                    format: int32
+                  total-discarded-frames:
+                    type: integer
+                    format: int32
+                  error-frames:
+                    type: integer
+                    format: int32
+                  total-frames:
+                    type: integer
+                    format: int32
+                  total-discarded-tlvs:
+                    type: integer
+                    format: int32
+                  total-unrecognized-tlvs:
+                    type: integer
+                    format: int32
+              remote-systems-data-list:
+                type: array
+                x-key: time-mark remote-index
+                items:
+                  type: object
+                  required:
+                    - time-mark
+                    - remote-index
+                  properties:
+                    time-mark:
+                      type: integer
+                      format: int32
+                    remote-index:
+                      type: integer
+                      format: uint8
+                    remote-too-many-neighbors:
+                      type: boolean
+                    remote-changes:
+                      type: boolean
+                    chassis-id-subtype:
+                      type: string
+                      enum:
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_CHASSIS_COMPONENT'
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_INTERFACE_ALIAS'
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_PORT_COMPONENT'
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_MAC_ADDRESS'
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_NETWORK_ADDRESS'
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_INTERFACE_NAME'
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_LOCAL'
+                        - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                    chassis-id:
+                      type: string
+                    port-id-subtype:
+                      type: string
+                      enum:
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_INTERFACE_ALIAS'
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_PORT_COMPONENT'
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_MAC_ADDRESS'
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NETWORK_ADDRESS'
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_INTERFACE_NAME'
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_AGENT_CIRCUIT_ID'
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_LOCAL'
+                        - 'lldp-1-0:PORT_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                    port-desc:
+                      type: string
+                    port-id:
+                      type: string
+                    system-name:
+                      type: string
+                    system-description:
+                      type: string
+                    system-capabilities-supported:
+                      type: object
+                      properties:
+                        other:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        repeater:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                     
+                        bridge:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        wlan-access-point:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
+                        router:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        telephone:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
+                        docsis-cable-device:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        station-only:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
+                        cvlan-component:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        svlan-component:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        two-port-mac-relay:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    system-capabilities-enabled:
+                      type: object
+                      properties:
+                        other:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        repeater:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                     
+                        bridge:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        wlan-access-point:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
+                        router:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        telephone:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
+                        docsis-cable-device:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        station-only:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
+                        cvlan-component:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        svlan-component:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                        two-port-mac-relay:
+                          type: string
+                          enum:
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                            - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
+                    management-address-list:
+                      type: array
+                      x-key: address-subtype address
+                      items:
+                        type: object
+                        required:
+                            - address-subtype
+                            - address
+                        properties:
+                          address-subtype:
+                            type: string
+                            enum:
+                              - 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV4'
+                              - 'lldp-1-0:ADDRESS_FAMILY_TYPE_IPV6'
+                              - 'lldp-1-0:ADDRESS_FAMILY_TYPE_NOT_YET_DEFINED'
+                          address:
+                            type: string
+                          if-subtype:
+                            type: string
+                            enum:
+                              - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_UNKNOWN'
+                              - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_PORT_REF'
+                              - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_SYSTEM_PORT_NUMBER'
+                              - 'lldp-1-0:MAN_ADDR_IF_SUBTYPE_TYPE_NOT_YET_DEFINED'
+                          if-id:
+                            type: integer
+                            format: int32
+                    remote-unknown-tlv-list:
+                      type: array
+                      x-key: tlv-type
+                      items:
+                        type: object
+                        required:
+                          - tlv-type
+                        properties:
+                          tlv-type:
+                            type: integer
+                            format: uint8
+                          tlv-info:
+                            type: string
+                    remote-org-defined-info-list:
+                      type: array
+                      x-key: info-identifier info-subtype info-index
+                      items:
+                        type: object
+                        required:
+                          - info-identifier
+                          - info-subtype
+                          - info-index
+                        properties:
+                          info-identifier:
+                            type: integer
+                            format: uint32
+                          info-subtype:
+                            type: integer
+                            format: uint16
+                          info-index:
+                            type: integer
+                            format: uint32
+                          remote-info:
+                            type: string
     local-system-data:
       type: object
-      required:
-        - chassis-id-subtype
-        - chassis-id
-        - system-name
-        - system-description
-        - system-capabilities-supported
-        - system-capabilities-enabled
-        - switching-protocol-on-off-is-avail
-        - supported-versions-of-lldp-list
-        - supported-kinds-of-lldp-agent-list
       properties:
         chassis-id-subtype:
           type: string
+          enum:
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_CHASSIS_COMPONENT'
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_INTERFACE_ALIAS'
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_PORT_COMPONENT'
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_MAC_ADDRESS'
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_NETWORK_ADDRESS'
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_INTERFACE_NAME'
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_LOCAL'
+            - 'lldp-1-0:CHASSIS_ID_SUBTYPE_TYPE_NOT_YET_DEFINED'
         chassis-id:
           type: string
         system-name:
@@ -1017,101 +1433,163 @@ components:
           type: string
         system-capabilities-supported:
           type: object
-          required:
-            - other
-            - repeater
-            - bridge
-            - wlan-access-point
-            - router
-            - telephone
-            - docsis-cable-device
-            - station-only
-            - cvlan-component
-            - svlan-component
-            - two-port-mac-relay
           properties:
             other:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             repeater:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                     
             bridge:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             wlan-access-point:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
             router:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             telephone:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
             docsis-cable-device:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             station-only:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
             cvlan-component:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             svlan-component:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             two-port-mac-relay:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
         system-capabilities-enabled:
           type: object
-          required:
-            - other
-            - repeater
-            - bridge
-            - wlan-access-point
-            - router
-            - telephone
-            - docsis-cable-device
-            - station-only
-            - cvlan-component
-            - svlan-component
-            - two-port-mac-relay
           properties:
             other:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             repeater:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                     
             bridge:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             wlan-access-point:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
             router:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             telephone:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
             docsis-cable-device:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             station-only:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'                      
             cvlan-component:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             svlan-component:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
             two-port-mac-relay:
               type: string
+              enum:
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_TRUE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_FALSE'
+                - 'lldp-1-0:CAPABILITY_VALUE_TYPE_NOT_YET_DEFINED'
         supported-versions-of-lldp-list:
           type: array
-          minItems: 0
           items:
             type: string
+            enum:
+              - 'lldp-1-0:LLDP_VERSION_TYPE_VERSION_1_IEEE_802_1AB_2005'
+              - 'lldp-1-0:LLDP_VERSION_TYPE_VERSION_2_IEEE_802_1AB_2009'
+              - 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
         supported-kinds-of-lldp-agent-list:
           type: array
-          minItems: 0
           items:
             type: string
+            pattern: '^[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}$'
         switching-protocol-on-off-is-avail:
-          type: boolean
+          type: boolean     
     remote-statistics:
       type: object
-      required:
-        - last-change-time
-        - remote-inserts
-        - remote-deletes
-        - remote-drops
-        - remote-ageouts
       properties:
         last-change-time:
           type: string
+          pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})$'
         remote-inserts:
           type: integer
           format: int32
@@ -1126,172 +1604,31 @@ components:
           format: int32
     lldp-configuration:
       type: object
-      required:
-        - protocol-is-on
-        - activated-version-of-lldp
       properties:
         protocol-is-on:
           type: boolean
         activated-version-of-lldp:
           type: string
+          enum:
+            - 'lldp-1-0:LLDP_VERSION_TYPE_VERSION_1_IEEE_802_1AB_2005'
+            - 'lldp-1-0:LLDP_VERSION_TYPE_VERSION_2_IEEE_802_1AB_2009'
+            - 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
     lldp-status:
       type: object
-      required:
-        - protocol-is-up
-        - operational-version-of-lldp
       properties:
         protocol-is-up:
           type: boolean
         operational-version-of-lldp:
           type: string
-    port-list:
-      type: array
-      minItems: 0
-      items:
-        type: object
-        required:
-          - name
-          - dest-mac-address
-          - admin-status
-          - notification-enable
-          - tlvs-tx-enable
-          - message-fast-tx
-          - message-tx-hold-multiplier
-          - message-tx-interval
-          - reinit-delay
-          - tx-credit-max
-          - tx-fast-init
-          - notification-interval
-          - management-address-tx-port-list
-          - port-id-subtype
-          - port-id
-          - port-desc
-          - tx-statistics
-          - rx-statistics
-        properties:
-          name:
-            type: string
-          dest-mac-address:
-            type: string
-          admin-status:
-            type: string
-          notification-enable:
-            type: boolean
-          tlvs-tx-enable:
-            type: object
-            required:
-              - port-desc
-              - sys-name
-              - sys-desc
-              - sys-cap
-            properties:
-              port-desc:
-                type: boolean
-              sys-name:
-                type: boolean
-              sys-desc:
-                type: boolean
-              sys-cap:
-                type: boolean
-          message-fast-tx:
-            type: integer
-            format: int16
-          message-tx-hold-multiplier:
-            type: integer
-            format: int8
-          message-tx-interval:
-            type: integer
-            format: int16
-          reinit-delay:
-            type: integer
-            format: int8
-          tx-credit-max:
-            type: integer
-            format: int8
-          tx-fast-init:
-            type: integer
-            format: int8
-          notification-interval:
-            type: integer
-            format: int16
-          management-address-tx-port-list:
-            type: array
-            items:
-              type: object
-              required:
-                - address-subtype
-                - man-address
-                - tx-enable
-                - addr-len
-                - if-subtype
-                - if-id
-              properties:
-                address-subtype:
-                  type: string
-                man-address:
-                  type: string
-                tx-enable:
-                  type: boolean
-                addr-len:
-                  type: integer
-                  format: int32
-                if-subtype:
-                  type: string
-                if-id:
-                  type: integer
-                  format: int32
-            x-key: address-subtype man-address
-          port-id-subtype:
-            type: string
-          port-id:
-            type: string
-          port-desc:
-            type: string
-          tx-statistics:
-            type: object
-            required:
-              - total-frames
-              - total-length-errors
-            properties:
-              total-frames:
-                type: integer
-                format: int32
-              total-length-errors:
-                type: integer
-                format: int32
-          rx-statistics:
-            type: object
-            required:
-              - total-ageouts
-              - total-discarded-frames
-              - error-frames
-              - total-frames
-              - total-discarded-tlvs
-              - total-unrecognized-tlvs
-            properties:
-              total-ageouts:
-                type: integer
-                format: int32
-              total-discarded-frames:
-                type: integer
-                format: int32
-              error-frames:
-                type: integer
-                format: int32
-              total-frames:
-                type: integer
-                format: int32
-              total-discarded-tlvs:
-                type: integer
-                format: int32
-              total-unrecognized-tlvs:
-                type: integer
-                format: int32
-    securitySchemes:
-      apiKeyAuth:
-        type: apiKey
-        in: header
-        name: operation-key
-      basicAuth:
-        type: http
-        scheme: basic
+          enum:
+            - 'lldp-1-0:LLDP_VERSION_TYPE_VERSION_1_IEEE_802_1AB_2005'
+            - 'lldp-1-0:LLDP_VERSION_TYPE_VERSION_2_IEEE_802_1AB_2009'
+            - 'lldp-1-0:LLDP_VERSION_TYPE_NOT_YET_DEFINED'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: operation-key
+    basicAuth:
+      type: http
+      scheme: basic

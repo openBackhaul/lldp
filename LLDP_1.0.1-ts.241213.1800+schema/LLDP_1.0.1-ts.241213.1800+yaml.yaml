@@ -648,23 +648,23 @@
     - lldp-1-0:remote-statistics
   properties:
     lldp-1-0:remote-statistics:
-          type: object
-          properties:
-            last-change-time:
-              type: string
-              pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})$'
-            remote-inserts:
-              type: integer
-              format: int32
-            remote-deletes:
-              type: integer
-              format: int32
-            remote-drops:
-              type: integer
-              format: int32
-            remote-ageouts:
-              type: integer
-              format: int32
+      type: object
+      properties:
+        last-change-time:
+          type: string
+          pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})$'
+        remote-inserts:
+          type: integer
+          format: int32
+        remote-deletes:
+          type: integer
+          format: int32
+        remote-drops:
+          type: integer
+          format: int32
+        remote-ageouts:
+          type: integer
+          format: int32
 /equipment-augment-1-0:protocol-collection/protocol={uuid}/lldp-1-0:lldp-pac/lldp-configuration:
   type: object
   required:
