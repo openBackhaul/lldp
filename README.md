@@ -20,13 +20,13 @@ Technology specific amendment to the ControlConstruct class for LLDP according t
 - [LLDP_1.0.1-ts.241213.1800+yang](./LLDP_1.0.1-ts.241213.1800+yang/lldp-1-0.yang)  
 
 ### Schema
-- to be provided  
+- [LLDP_1.0.1-ts.241213.1800+schema](./LLDP_1.0.1-ts.241213.1800+schema/)
 
 ### Interface Simulator  
-- to be provided  
+- [LLDP_1.0.1-ts.241213.1800+simulator](./LLDP_1.0.1-ts.241213.1800+simu/)
 
 ### Interface Validator  
-- to be provided  
+- [LLDP_1.0.1-ts.241213.1800+validator](./LLDP_1.0.1-ts.241213.1800+vali/)
 
 ### Publication  
 - Published as a part of ONF TR-532 v2.0  

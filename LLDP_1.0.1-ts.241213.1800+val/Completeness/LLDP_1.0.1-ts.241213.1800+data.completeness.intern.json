@@ -1,0 +1,123 @@
+[
+	{
+		"mode": "debug",
+		"serverList": [
+			{
+				"serverName": "dummy",
+				"dummyUri": "ping.openBackhaul.com"
+			},
+			{
+				"serverName": "controller",
+				"server": "https://10.118.125.76:8443",
+				"pathToControlConstruct": "/rests/data/network-topology:network-topology/topology=topology-netconf/node={mountName}/yang-ext:mount/core-model-1-4:control-construct",
+				"authorizationCode": "Basic dGhvcnN0ZW4uaDpQUlRoMDk="
+			},
+			{
+				"serverName": "controllerRpc",
+				"server": "https://10.118.125.76:8443",
+				"pathToControlConstruct": "/rests/operations/network-topology:network-topology/topology=topology-netconf/node={mountName}/yang-ext:mount",
+				"authorizationCode": "Basic dGhvcnN0ZW4uaDpQUlRoMDk="
+			},
+			{
+				"serverName": "mwdi",
+				"server": "http://10.118.127.11:3008",
+				"pathToControlConstruct": "/core-model-1-4:network-control-domain=cache/control-construct={mountName}",
+				"authorizationCode": "Basic dGhvcnN0ZW4uaDpQUlRoMDk=",
+				"operationKey": "Operation key not yet provided.",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			},
+      {
+				"serverName": "mdip",
+				"server": "http://10.118.127.11:3013",
+				"pathToControlConstruct": "/core-model-1-4:network-control-domain=cache/control-construct={mountName}",
+				"authorizationCode": "Basic YWRtaW46YWRtaW5AMTIz",
+				"operationKey": "Operation key not yet provided.",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			},
+			{
+				"serverName": "application in LLDP_1.0.1-ts.241213.1800+simulator.completeness",
+				"server": "http://localhost:3002",
+				"pathToControlConstruct": "/core-model-1-4:network-control-domain=cache/control-construct={mountName}",
+				"authorizationCode": "",
+				"operationKey": "Operation key not yet provided.",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			},
+			{
+				"serverName": "application for RPC in LLDP_1.0.1-ts.241213.1800+simulator.completeness",
+				"server": "http://localhost:3002",
+				"pathToControlConstruct": "/core-model-1-4:network-control-domain=live/control-construct={mountName}",
+				"authorizationCode": "",
+				"operationKey": "Operation key not yet provided.",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			},
+			{
+				"serverName": "controller in LLDP_1.0.1-ts.241213.1800+simulator.completeness",
+				"server": "http://localhost:3002",
+				"pathToControlConstruct": "/rests/data/network-topology:network-topology/topology=topology-netconf/node={mountName}/yang-ext:mount/core-model-1-4:control-construct",
+				"authorizationCode": "",
+				"operationKey": "Operation key not yet provided.",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			},
+			{
+				"serverName": "controller for RPC in LLDP_1.0.1-ts.241213.1800+simulator.completeness",
+				"server": "http://localhost:3002",
+				"pathToControlConstruct": "/rests/operations/network-topology:network-topology/topology=topology-netconf/node={mountName}/yang-ext:mount",
+				"authorizationCode": "",
+				"operationKey": "Operation key not yet provided.",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			}
+		],
+		"collectionInputList": [
+			{
+				"collectionName": "lldpInterface",
+				"serverToBeApplied": "controller",
+				"mountName": "513250004",
+				"kindOfReference": "dynamic"
+			},
+			{
+				"collectionName": "lldpInterfaceRpc",
+				"serverToBeApplied": "controllerRpc",
+				"mountName": "513250004",
+				"kindOfReference": "dynamic"
+			},
+			{
+				"collectionName": "lldpInterface_simulator",
+				"serverToBeApplied": "application in LLDP_1.0.1-ts.241213.1800+simulator.completeness",
+				"mountName": "305250001",
+				"kindOfReference": "static",
+				"suffixUrlEncodingIsRequired": true
+			},
+			{
+				"collectionName": "lldpInterfaceRpc_simulator",
+				"serverToBeApplied": "application for RPC in LLDP_1.0.1-ts.241213.1800+simulator.completeness",
+				"mountName": "305250001",
+				"kindOfReference": "static",
+				"suffixUrlEncodingIsRequired": true
+			}
+		]
+	}
+]
